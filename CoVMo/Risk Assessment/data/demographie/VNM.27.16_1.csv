@@ -1,0 +1,15 @@
+district,commune,extern,foreigner,moving,high_contact,low_contact,social_distancing,traffic_in,emphasize
+Long Bien,Bo De,100,100,60,100,60,100,0,100
+Long Bien,Cu Khoi,0,0,0,0,0,100,0,100
+Long Bien,Duc Giang,0,60,30,60,0,100,0,100
+Long Bien,Gia Thuy,30,60,60,60,60,100,0,100
+Long Bien,Giang Bien,0,30,0,0,0,100,0,100
+Long Bien,Long Bien,0,100,100,60,60,100,0,100
+Long Bien,Ngoc Lam,100,100,100,100,100,100,0,100
+Long Bien,Ngoc Thuy,60,100,100,60,60,100,0,100
+Long Bien,Phuc Dong,30,60,60,60,0,100,0,100
+Long Bien,Phuc Loi,0,30,0,0,0,100,0,100
+Long Bien,Sai Dong,30,60,30,60,30,100,0,100
+Long Bien,Thach Ban,30,60,30,30,30,100,0,100
+Long Bien,Thuong Thanh,0,30,60,30,0,100,0,100
+Long Bien,Viet Hung,0,100,60,30,30,100,0,100
