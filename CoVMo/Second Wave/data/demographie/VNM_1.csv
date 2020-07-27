@@ -1,0 +1,64 @@
+Country,Province/City,extern,foreigner,moving,high_contact,low_contact,social_distancing,traffic_in,emphasize
+Vietnam,An Giang,30,15,30,30,30,100,30,30
+Vietnam,Ba Ria - Vung Tau,100,40,60,60,60,100,60,30
+Vietnam,Bac Giang,60,25,60,30,30,100,60,30
+Vietnam,Bac Kan,30,5,30,30,30,100,30,30
+Vietnam,Bac Lieu,60,10,30,30,30,100,30,30
+Vietnam,Bac Ninh,60,40,60,60,60,100,60,60
+Vietnam,Ben Tre,30,15,30,30,30,100,30,30
+Vietnam,Binh Dinh,60,15,60,60,60,100,60,60
+Vietnam,Binh Duong,60,50,60,60,60,100,60,60
+Vietnam,Binh Phuoc,30,25,30,30,30,100,30,30
+Vietnam,Binh Thuan,60,50,60,100,100,100,0,100
+Vietnam,Ca Mau,30,10,30,30,30,100,30,30
+Vietnam,Can Tho,100,40,100,100,60,100,60,60
+Vietnam,Cao Bang,60,5,60,30,30,100,60,100
+Vietnam,Da Nang,100,70,100,100,100,100,0,100
+Vietnam ,Dak Lak,40,15,30,30,30,100,60,60
+Vietnam,Dak Nong,30,5,30,30,30,100,30,30
+Vietnam,Dien Bien,30,2,30,30,30,100,30,30
+Vietnam,Dong Nai,60,40,60,60,60,100,60,60
+Vietnam,Dong Thap,30,15,30,30,30,100,30,60
+Vietnam,Gia Lai,30,5,30,30,30,100,60,30
+Vietnam,Ha Giang,60,15,60,30,30,100,60,100
+Vietnam,Ha Nam,60,15,60,60,30,100,60,30
+Vietnam,Ha Noi,100,100,100,100,100,100,0,100
+Vietnam,Ha Tinh,60,25,30,30,30,100,60,60
+Vietnam,Hai Duong,60,40,60,60,30,100,60,60
+Vietnam ,Hai Phong,100,40,60,60,60,100,60,30
+Vietnam,Hau Giang,40,15,30,30,30,100,60,60
+Vietnam,Ho Chi Minh,100,100,100,100,100,100,0,100
+Vietnam,Hoa Binh,30,15,30,60,60,100,30,60
+Vietnam,Hung Yen,60,25,50,50,40,100,60,30
+Vietnam,Khanh Hoa,100,70,100,60,60,100,60,0
+Vietnam,Kien Giang,100,70,60,60,30,100,60,30
+Vietnam,Kon Tum,30,2,30,30,30,100,30,30
+Vietnam,Lai Chau,30,2,30,30,30,100,30,30
+Vietnam,Lam Dong,60,40,60,60,60,100,60,60
+Vietnam,Lang Son,60,5,60,30,30,100,60,100
+Vietnam,Lao Cai,100,25,100,60,60,100,100,0
+Vietnam,Long An,30,25,30,30,30,100,30,30
+Vietnam,Nam Dinh,50,15,40,40,40,100,60,30
+Vietnam,Nghe An,60,25,60,30,30,100,60,100
+Vietnam,Ninh Binh,60,25,100,100,60,100,0,60
+Vietnam,Ninh Thuan,30,25,30,30,30,100,60,30
+Vietnam,Phu Tho,30,25,30,60,60,100,30,60
+Vietnam,Phu Yen,60,10,60,60,60,100,60,60
+Vietnam,Quang Binh,60,25,60,30,30,100,60,60
+Vietnam,Quang Nam,100,50,60,60,60,100,60,60
+Vietnam,Quang Ngai,30,10,30,30,30,100,60,60
+Vietnam,Quang Ninh,100,40,100,100,60,100,0,100
+Vietnam,Quang Tri,30,10,30,30,30,100,60,60
+Vietnam,Soc Trang,30,15,30,30,30,100,30,30
+Vietnam,Son La,30,5,30,30,30,100,30,30
+Vietnam,Tay Ninh,30,30,30,30,30,100,30,30
+Vietnam,Thai Binh,60,25,60,30,30,100,60,30
+Vietnam,Thai Nguyen,60,15,60,60,60,100,60,60
+Vietnam,Thanh Hoa,60,25,60,60,60,100,60,100
+Vietnam,Thua Thien Hue,100,40,60,60,60,100,60,60
+Vietnam,Tien Giang,30,25,30,30,30,100,30,30
+Vietnam,Tra Vinh,30,10,30,30,30,100,30,30
+Vietnam,Tuyen Quang,30,5,30,30,30,100,30,30
+Vietnam,Vinh Long,30,15,30,30,30,100,30,30
+Vietnam,Vinh Phuc,60,15,60,100,100,100,0,100
+Vietnam,Yen Bai,30,10,30,30,30,100,30,30

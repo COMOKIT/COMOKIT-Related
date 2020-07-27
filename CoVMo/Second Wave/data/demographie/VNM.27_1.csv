@@ -1,0 +1,31 @@
+City,district,extern,foreigner,moving,high_contact,low_contact,social_distancing,traffic_in,emphasize
+Ha Noi,Ba Dinh,60,100,60,60,100,100,0,100
+Ha Noi,Bac Tu Liem,30,60,60,30,60,100,0,100
+Ha Noi,Cau Giay,60,100,60,60,100,100,0,100
+Ha Noi,Dong Da,60,60,60,100,100,100,0,100
+Ha Noi,Ha Dong,30,60,60,60,100,100,0,100
+Ha Noi,Hai Ba Trung,100,60,60,100,100,100,0,100
+Ha Noi,Hoan Kiem,100,100,100,60,100,100,0,100
+Ha Noi,Hoang Mai,30,30,60,30,60,100,0,100
+Ha Noi,Long Bien,60,100,60,60,60,100,0,100
+Ha Noi,Nam Tu Liem,60,60,30,30,100,100,0,100
+Ha Noi,Tay Ho,100,100,100,60,60,100,0,100
+Ha Noi,Thanh Xuan,60,100,30,60,100,100,0,100
+Ha Noi,Son Tay ,30,0,30,30,30,100,0,100
+Ha Noi,Ba Vi,30,0,0,30,0,100,0,100
+Ha Noi,Chuong My,0,0,0,30,0,100,0,100
+Ha Noi,Dan Phuong,0,0,0,30,0,100,0,100
+Ha Noi,Dong Anh,0,60,30,30,0,100,0,100
+Ha Noi,Gia Lam,0,30,30,30,30,100,0,100
+Ha Noi,Hoai Duc,30,0,0,30,0,100,0,100
+Ha Noi,Me Linh,30,30,30,30,30,100,0,100
+Ha Noi,My Duc,30,0,0,30,0,100,0,100
+Ha Noi,Phu Xuyen,0,0,0,0,0,100,0,100
+Ha Noi,Phuc Tho,0,0,0,30,0,100,0,100
+Ha Noi,Quoc Oai,0,0,0,30,0,100,0,100
+Ha Noi,Soc Son,0,30,0,30,0,100,0,100
+Ha Noi,Thach That,30,0,0,30,0,100,0,100
+Ha Noi,Thanh Oai,0,0,0,0,0,100,0,100
+Ha Noi,Thanh Tri,30,0,0,60,0,100,0,100
+Ha Noi,Thuong Tin,0,0,0,30,0,100,0,100
+Ha Noi,Ung Hoa,0,0,0,0,0,100,0,100
