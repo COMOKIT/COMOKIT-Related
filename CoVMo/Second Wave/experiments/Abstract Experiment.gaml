@@ -332,8 +332,65 @@ experiment AbstractExp virtual: true {
 	//	parameter "Mức tăng cấp quận" category: "Hiển thị" var: nb_increase_size_3 <- 1;
 	output {
 		display "default_mixed_wander_display" synchronized: false background: background virtual: true draw_env: false {
+			
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.2_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.3_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.4_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.5_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.6_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.1_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.2_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.3_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.4_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.5_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.6_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.7_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.8_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.9_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.10_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.11_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.12_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.13_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.1_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.2_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.3_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.4_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.5_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.6_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.7_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.8_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.9_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.10_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.11_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.1_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.2_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.3_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.4_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.5_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.1_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.2_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.3_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.4_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.1_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.2_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.3_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.4_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.5_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.6_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.7_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.1_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.2_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.3_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.4_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.5_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.6_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.7_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.8_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.9_1.png" refresh: false;
+			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.10_1.png" refresh: false;
 //			image file: "../images/satellite_" + GIS_id + ".png" refresh: false;
-			image file: "../images/wave2.png" refresh: false;
+//			image file: "../images/satellite.png" refresh: false;
 //			overlay position: {100, 0} size: {270 #px, 420 #px} transparency: 0.8 {
 //				if (show_ranking) {
 //					draw ("" + map_GIS_name[GIS_id] + " | Ca nhiễm:" + (length(DetectedCase))) font: default at: {20 #px, 50 #px} anchor: #top_left color: text_color;
@@ -367,7 +424,7 @@ experiment AbstractExp virtual: true {
 
 				if (#zoom >= 1.5) {
 					if (under_mouse_agent != nil) {
-						draw info_text at: #user_location empty: false perspective: false font: info color: #black;
+						draw info_text at: #user_location empty: false perspective: false font: info color: #yellow;
 					}
 
 				}

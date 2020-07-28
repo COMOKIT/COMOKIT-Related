@@ -13,7 +13,7 @@ model CoVid19
 
 global {
 	shape_file provinces_shp_file3 <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_3.shp");
-	string file_path <- "";//"../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1";
+	string file_path <- ""; //"../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1";
 	bool loading <- false;
 	//mandatory: define the bounds of the studied area
 	init {
@@ -24,7 +24,7 @@ global {
 
 	}
 
-	file data_file <- loading?shape_file(file_path + ".shp"):shape_file("../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1.shp");
+	file data_file <- loading ? shape_file(file_path + ".shp") : shape_file("../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1.shp");
 	geometry shape <- envelope(data_file);
 
 	//2344.06886728853 2853.6177374180406 {108.18542480464995,16.037336349477016,0.0} 
@@ -32,7 +32,9 @@ global {
 	action load_satellite_image (string fp) {
 		point top_left <- CRS_transform({0, 0}, "EPSG:4326").location;
 		point bottom_right <- CRS_transform({shape.width, shape.height}, "EPSG:4326").location;
-		write ""+file_path+" "+top_left+" "+bottom_right;
+		//		write "" + file_path;
+		//		write shape;
+		//		write "" + top_left + " " + bottom_right;
 		//		write top_left;
 		//		write "" + shape.width + " " + shape.height + " " + bottom_right;
 
@@ -49,10 +51,14 @@ global {
 		int size_y <- 1500;
 		string
 		rest_link <- "https://dev.virtualearth.net/REST/v1/Imagery/Map/AerialWithLabels/?mapArea=" + bottom_right.y + "," + top_left.x + "," + top_left.y + "," + bottom_right.x + "&mapSize=" + size_x + "," + size_y + "&key=AvZ5t7w-HChgI2LOFoy_UF4cf77ypi2ctGYxCgWOLGFwMGIGrsiDpCDCjliUliln";
-		//		write rest_link;
+		write rest_link;
 		image_file static_map_request <- image_file(rest_link);
+		//		loop times: 50000000 {
+		//			int i <- 0;
+		//		}
 		image_file copy <- image_file(fp + ".png", static_map_request.contents);
 		save copy type: image;
+		static_map_request <- nil;
 
 		//		ask cell {		
 		//			color <-rgb( (static_map_request) at {grid_x,1500 - (grid_y + 1) }) ;
@@ -62,7 +68,10 @@ global {
 		//		write "Satellite image retrieved";
 		string
 		rest_link2 <- "https://dev.virtualearth.net/REST/v1/Imagery/Map/AerialWithLabels/?mapArea=" + bottom_right.y + "," + top_left.x + "," + top_left.y + "," + bottom_right.x + "&mmd=1&mapSize=" + size_x + "," + size_y + "&key=AvZ5t7w-HChgI2LOFoy_UF4cf77ypi2ctGYxCgWOLGFwMGIGrsiDpCDCjliUliln";
+		write rest_link2;
 		file f <- json_file(rest_link2);
+
+		//		loop times:50000000{int i<-0;}
 		list<string> v <- string(f.contents) split_with ",";
 		int index <- 0;
 		loop i from: 0 to: length(v) - 1 {
@@ -106,16 +115,33 @@ experiment generateGISdata type: gui {
 	list<string> lst_city <- ["VNM.19_1"];
 	list<string> lst_fp <- [];
 
+	action _init_ {
+		lst_fp <-
+		['../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.8_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.9_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.10_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.11_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.12_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.13_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.8_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.9_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.10_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.11_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.8_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.9_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.10_1'];
+		loop s over: lst_fp {
+			write s;
+			//			create simulation with: [file_path::s, shape::envelope(shape_file(s + ".shp")) , loading::true];
+//			create simulation with: [file_path::s, loading::true];
+//			save "" to: "C:\\Users\\hqngh\\gama_workspace1909ssl\\.cache\\dev.virtualearth.net+_++_+REST+_+v1+_+Imagery+_+Map+_+AerialWithLabels+_+";
+//			loop times: 1000000 {
+//				write "";
+//			}
+
+		}
+
+	}
+
 	reflex aaa {
 		create adm3 from: provinces_shp_file3;
 		string ds <- "../includes/gadm36_VNM_shp/generated/";
 		ask adm3 where (each.GID_1 in lst_city) {
 			myself.lst_fp <+ ds + GID_1 + "/" + GID_2 + "/" + GID_3;
 		}
-		loop s over: lst_fp{
-			write s;
-			create simulation with:[file_path::s,loading::true];
-		}
+
+		//		loop s over: lst_fp {
+		//			write s;
+		//			create simulation with: [file_path::s, loading::true];
+		//		}
 
 	}
 	//	output {

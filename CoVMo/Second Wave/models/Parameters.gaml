@@ -30,12 +30,12 @@ global {
 	
 	
 	
-	shape_file provinces_shp_file1 <- shape_file("../includes/gadm36_VNM_shp/generated/Wave2_1.shp");
-	shape_file provinces_shp_file2 <- shape_file("../includes/gadm36_VNM_shp/generated/Wave2_2.shp");
-	shape_file provinces_shp_file3 <- shape_file("../includes/gadm36_VNM_shp/generated/Wave2_3.shp");
+	shape_file provinces_shp_file1 <- shape_file("../includes/gadm36_VNM_shp/generated/Wave2_1_.shp");
+	shape_file provinces_shp_file2 <- shape_file("../includes/gadm36_VNM_shp/generated/Wave2_2_.shp");
+	shape_file provinces_shp_file3 <- shape_file("../includes/gadm36_VNM_shp/generated/Wave2_3_.shp");
 	//	shape_file provinces_shp_file3 <- shape_file("../includes/gadm36_VNM_shp/generated/VNM.27.16_1.shp");
 	list<int> statistic_cases_added <- [];
-	geometry shape <-envelope(image_file("../images/wave2.png"));
+	geometry shape <-envelope(provinces_shp_file1);
 //	geometry shape <- envelope(image_file("../images/satellite_" + GIS_id + ".png"));
 //		geometry shape <- envelope(provinces_shp_file1);
 	bool show_traffic <- true;
