@@ -14,7 +14,7 @@ global {
 	float step <- 15 #minute;
 	float c_zoom <- 1.0;
 	//thoi gian khoi dau mo hinh
-	date starting_date <- date([2020, 3, 1, 0, 0]);
+	date starting_date <- date([2020, 7, 29, 0, 0]);
 
 	// thoi gian virus ton tai va gay nguy hiem o khu vuc benh nhan di qua (tinh theo gio)
 	int v_time_life <- 24;
@@ -23,13 +23,14 @@ global {
 	//	shape_file provinces_shp_file <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_1.shp");
 	//	shape_file provinces_shp_file <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_2.shp");
 	shape_file provinces_shp_file; // <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_3.shp");
-	shape_file provinces_shp_file1 <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_1.shp");
+//	shape_file provinces_shp_file1 <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_1.shp");
+	shape_file provinces_shp_file1 <- shape_file("../includes/gadm36_VNM_shp/generated/gadm36_VNM_1.shp");
 	shape_file provinces_shp_file2 <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_2.shp");
 	shape_file provinces_shp_file3 <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_3.shp");
 	//	shape_file provinces_shp_file3 <- shape_file("../includes/gadm36_VNM_shp/generated/VNM.27.16_1.shp");
 	list<int> statistic_cases_added <- [];
-	geometry shape <- envelope(image_file("../images/satellite_" + GIS_id + ".png"));
-	//	geometry shape <- envelope(provinces_shp_file1);
+//	geometry shape <- envelope(image_file("../images/satellite_" + GIS_id + ".png"));
+		geometry shape <- envelope(provinces_shp_file1);
 	bool show_traffic <- true;
 	bool show_ranking <- true;
 	int nb_ranking_list <- 10;

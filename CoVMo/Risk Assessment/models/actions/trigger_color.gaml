@@ -14,9 +14,9 @@ global {
 
 	
 	action trigger_color {
-		ask AdministrativeBound_1  + AdministrativeBound_2 + AdministrativeBound_3 {
-			risk_point <- self.accessment();
-		}
+//		ask AdministrativeBound_1  + AdministrativeBound_2 + AdministrativeBound_3 {
+//			risk_point <- self.accessment();
+//		}
 
 		max_risk_point <- max([200, AdministrativeBound_1 max_of each.risk_point]);
 		ask AdministrativeBound_1  + AdministrativeBound_2 + AdministrativeBound_3 {
