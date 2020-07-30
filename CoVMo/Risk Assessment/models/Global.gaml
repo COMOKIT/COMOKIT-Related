@@ -26,7 +26,7 @@ global {
 	}
 	action tmp{
 		
-		string fpath <- "../data/VNM_1_risk-29-7.csv";
+		string fpath <- "../data/VNM_1_risk-30-7.csv";
 		if (!file_exists(fpath)) {
 			return;
 		}
