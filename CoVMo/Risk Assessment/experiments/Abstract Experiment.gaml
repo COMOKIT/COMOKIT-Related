@@ -335,7 +335,7 @@ experiment AbstractExp virtual: true {
 			image file: "../images/satellite_" + GIS_id + ".png" refresh: false;
 			overlay position: {100, 0} size: {270 #px, 420 #px} transparency: 0.8 {
 				if (show_ranking) {
-					draw ("" + map_GIS_name[GIS_id] + " | Ca nhiễm: 459") font: default at: {20 #px, 50 #px} anchor: #top_left color: text_color;
+					draw ("" + map_GIS_name[GIS_id] + " | Ca nhiễm: 590") font: default at: {20 #px, 50 #px} anchor: #top_left color: text_color;
 					draw ("" + current_date) font: info at: {20 #px, 80 #px} anchor: #top_left color: text_color;
 					draw ("Xếp hạng nguy cơ:") font: default at: {20 #px, 110 #px} anchor: #top_left color: text_color;
 					int y <- 130;
