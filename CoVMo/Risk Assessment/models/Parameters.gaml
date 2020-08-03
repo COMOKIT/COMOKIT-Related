@@ -14,7 +14,7 @@ global {
 	float step <- 15 #minute;
 	float c_zoom <- 1.0;
 	//thoi gian khoi dau mo hinh
-	date starting_date <- date([2020, 8, 2, 7, 0]);
+	date starting_date <- date([2020, 8, 3, 7, 0]);
 
 	// thoi gian virus ton tai va gay nguy hiem o khu vuc benh nhan di qua (tinh theo gio)
 	int v_time_life <- 24;

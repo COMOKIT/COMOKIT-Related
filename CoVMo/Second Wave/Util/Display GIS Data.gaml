@@ -1,14 +1,4 @@
-/******************************************************************
-* This file is part of COMOKIT, the GAMA CoVid19 Modeling Kit
-* Relase 1.0, May 2020. See http://comokit.org for support and updates
-* 
-* Given a boundary.shp shapefile that defines a zone, this model enables
-* to create the GIS file of buildings from OSM, to get additional information
-* from GoogleMap (types of buildings) and to download a background satellite image
-* 
-* Author: Patrick Taillandier
-* Tags: covid19,epidemiology, gis
-******************************************************************/
+  
 model CoVid19
 
 global {
@@ -28,14 +18,27 @@ global {
 
 		//create iris agents from the CSV file (use of the header of the CSV file), the attributes of the agents are initialized from the CSV files: 
 		//we set the header facet to true to directly read the values corresponding to the right column. If the header was set to false, we could use the index of the columns to initialize the agent attributes
-		create iris from: csv_file("ds.csv", true) with: [x::float(get("x")), y::float(get("y"))];
-		ask iris { 
+		create Patient from: csv_file("ds.csv", true) with: [x::float(get("x")), y::float(get("y"))];
+		ask Patient { 
 //			point pt <-  {106.6780598,10.7766574}; 105.7121776,10.0804831	10.0804831,105.7121776
 //			point pt <- {108.21545,16.07294};
 			point pt<-{y,x};
 			location <- to_GAMA_CRS(pt, "4326").location; 
 		}
+		string fpath <- "ds02.08.csv";
+		if (!file_exists(fpath)) {
+			return;
+		}
 
+		file pop_csv_file <- csv_file(fpath);
+		matrix data <- (pop_csv_file.contents);
+		loop i from: 0 to: data.rows - 1 {
+			Patient p <- first(Patient where (each.name = data[3, i]));
+			if (p != nil) { 
+
+			}
+
+		}
 	}
 
 	geometry shape <- envelope(provinces_shp_file3);
@@ -56,9 +59,10 @@ global {
 
 }
 
-species iris {
+species Patient {
 	float x;
 	float y; 
+	string name;
 
 	aspect default {
 		draw circle(1000) at: location color:#red;
@@ -151,9 +155,9 @@ experiment generateGISdata type: gui {
 		//			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.9_1.png" refresh: false;
 		//			image file: "../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.10_1.png" refresh: false;
 			species adm3; //position: {0, 0, 0.001};
-			species iris;
+			species Patient;
 			graphics ss{
-				draw envelope(iris) color:#yellow;
+				draw envelope(Patient) color:#yellow;
 			}
 			// 			grid cell  lines:#red transparency:0.8;
 		}
