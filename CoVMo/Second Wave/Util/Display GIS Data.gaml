@@ -18,13 +18,13 @@ global {
 
 		//create iris agents from the CSV file (use of the header of the CSV file), the attributes of the agents are initialized from the CSV files: 
 		//we set the header facet to true to directly read the values corresponding to the right column. If the header was set to false, we could use the index of the columns to initialize the agent attributes
-		create Patient from: csv_file("ds.csv", true) with: [x::float(get("x")), y::float(get("y"))];
-		ask Patient { 
-//			point pt <-  {106.6780598,10.7766574}; 105.7121776,10.0804831	10.0804831,105.7121776
-//			point pt <- {108.21545,16.07294};
-			point pt<-{y,x};
-			location <- to_GAMA_CRS(pt, "4326").location; 
-		}
+//		create Patient from: csv_file("ds.csv", true) with: [x::float(get("x")), y::float(get("y"))];
+//		ask Patient { 
+////			point pt <-  {106.6780598,10.7766574}; 105.7121776,10.0804831	10.0804831,105.7121776
+////			point pt <- {108.21545,16.07294};
+//			point pt<-{y,x};
+//			location <- to_GAMA_CRS(pt, "4326").location; 
+//		}
 		string fpath <- "ds02.08.csv";
 		if (!file_exists(fpath)) {
 			return;
@@ -63,7 +63,7 @@ species Patient {
 	float x;
 	float y; 
 	string name;
-
+	map<date,point> position;
 	aspect default {
 		draw circle(1000) at: location color:#red;
 	}
