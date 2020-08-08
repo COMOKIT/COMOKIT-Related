@@ -9,6 +9,12 @@ model Corona
 import "Abstract Experiment.gaml"
 experiment Pandemic2020 type: gui parent: AbstractExp autorun: false {
 
+	parameter "Date" var: date_idx <- 0 min: 0 max: 70 on_change: {
+		ask world {
+			do trigger_fetch_data;
+		}
+
+	};
 	init {
 		gama.pref_display_visible_agents <- true;	
 		gama.pref_display_zoom_factor <- 0.25;

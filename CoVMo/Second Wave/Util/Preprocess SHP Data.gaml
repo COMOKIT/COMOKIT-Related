@@ -17,35 +17,54 @@ global {
 	geometry shape <- envelope(provinces_shp_file1);
 
 	init {
+		do tmp;
+	}
+
+	action testloc {
 		create iris from: csv_file("ds.csv", true) with: [x::float(get("tx")), y::float(get("ty"))];
 		ask iris {
 			write " " + x + " " + y;
-			location<-({x,y});
-//		location <- CRS_transform({x, y},  "EPSG:3857").location;  
-			location <- to_GAMA_CRS({x,y}, "EPSG:4326").location;//to_GAMA_CRS({x, y}).location
+			location <- ({x, y});
+			//		location <- CRS_transform({x, y},  "EPSG:3857").location;  
+			location <- to_GAMA_CRS({x, y}, "EPSG:4326").location; //to_GAMA_CRS({x, y}).location
 			write location;
 		}
-			save iris crs: 4326 to: "isir.shp" type: "shp";
-//		do split;
+
+		save iris crs: 4326 to: "isir.shp" type: "shp";
 	}
 
 	action tmp {
-		shape_file p3 <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_2.shp");
+//		list<string> lst_city <- ["VNM.27_1"];// 2 3 5 7 11 12 14 15 16 19 25 28 29
+		list<int> idx<- [2,3,5,7,11,12,14,15,16,19,25,28,29];
+		list<string> lst_city<-idx collect ("VNM.27."+each+"_1");
+//		shape_file p3 <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_2.shp");
 		//		shape_file p3 <- shape_file("../includes/gadm36_VNM_shp/generated/gadm36_VNM_1.shp"); 
 		list<string>
 		bb <- ['office', 'admin', 'industry', 'store', 'shop', 'bookstore', 'gamecenter', 'restaurant', 'coffeeshop', 'caphe', 'caphe-karaoke', 'farm', 'repairshop', 'hostel'];
-		create building from: p3 {
-			type <- "";
+//		create building from: p3 {
+//			type <- "";
+//		}
+
+//		save building crs: 3857 to: "buildings.shp" type: "shp" attributes:
+//		["ID"::int(self), "NAME_1"::NAME_1, "GID_1"::GID_1, "NAME_2"::NAME_2, "GID_2"::GID_2, "NAME_3"::NAME_3, "GID_3"::GID_3, "VARNAME_1"::VARNAME_1, "VARNAME_2"::VARNAME_2, "VARNAME_3"::VARNAME_3, "type"::type];
+		create building from: provinces_shp_file3;
+		ask building where !(each.GID_2 in lst_city) {
+			do die;
+			//			write shape;
+			//			shape<-CRS_transform(shape, "EPSG:3857", "EPSG:4326" );
+			//			shape<-CRS_transform(shape, "EPSG:32648" , "EPSG:3857");
+			//			write shape;
+			//			shape<-to_GAMA_CRS(shape);
 		}
 
 		loop b over: bb {
-			any(building where (each.type = "")).type <- b;
-			any(building where (each.type = "")).type <- b;
-			any(building where (each.type = "")).type <- b;
-			any(building where (each.type = "")).type <- b;
+			any(building where (!dead(each) and each.type = "")).type <- b;
+			any(building where (!dead(each) and each.type = "")).type <- b;
+			any(building where (!dead(each) and each.type = "")).type <- b;
+			any(building where (!dead(each) and each.type = "")).type <- b;
 		}
 
-		save building crs: 3857 to: "buildings.shp" type: "shp" attributes:
+		save building crs: 3857 to: "../includes/gadm36_VNM_shp/generated/buildings.shp" type: "shp" attributes:
 		["ID"::int(self), "NAME_1"::NAME_1, "GID_1"::GID_1, "NAME_2"::NAME_2, "GID_2"::GID_2, "NAME_3"::NAME_3, "GID_3"::GID_3, "VARNAME_1"::VARNAME_1, "VARNAME_2"::VARNAME_2, "VARNAME_3"::VARNAME_3, "type"::type];
 	}
 
@@ -57,32 +76,31 @@ global {
 	//			["ID"::int(self), "NAME_1"::NAME_1, "GID_1"::GID_1, "NAME_2"::NAME_2, "GID_2"::GID_2, "NAME_3"::NAME_3, "GID_3"::GID_3, "VARNAME_1"::VARNAME_1, "VARNAME_2"::VARNAME_2, "VARNAME_3"::VARNAME_3];
 	//		}
 	//		list<string> lst_city <- ["VNM.54_1", "VNM.19_1", "VNM.47_1"];
-		list<string> lst_city <- ["VNM.19_1"];
+		list<string> lst_city <- ["VNM.27_1"];
 		//		create adm1 from: provinces_shp_file1;
 		//		ask adm1 where (each.GID_1 in lst_city) {
-		//			shape<-CRS_transform(shape, "EPSG:4326"  );
-		//			save [self] to: "../includes/gadm36_VNM_shp/generated/" + GID_1 + ".shp" type: "shp" attributes:
+		//		//			shape <- CRS_transform(shape, "EPSG:4326");
+		//			save [self] crs: 3857 to: "../includes/gadm36_VNM_shp/generated/" + GID_1 + ".shp" type: "shp" attributes:
 		//			["ID"::int(self), "NAME_1"::NAME_1, "GID_1"::GID_1, "NAME_2"::NAME_2, "GID_2"::GID_2, "NAME_3"::NAME_3, "GID_3"::GID_3, "VARNAME_1"::VARNAME_1, "VARNAME_2"::VARNAME_2, "VARNAME_3"::VARNAME_3];
 		//		}
 		//
-		create adm2 from: provinces_shp_file2;
-		ask adm2 where (each.GID_1 in lst_city) {
-//			shape <- CRS_transform(shape, "EPSG:4326");
-			save [self] crs: 3857 to: "../includes/gadm36_VNM_shp/generated/" + GID_1 + "/" + GID_2 + ".shp" type: "shp" attributes:
-			["ID"::int(self), "NAME_1"::NAME_1, "GID_1"::GID_1, "NAME_2"::NAME_2, "GID_2"::GID_2, "NAME_3"::NAME_3, "GID_3"::GID_3, "VARNAME_1"::VARNAME_1, "VARNAME_2"::VARNAME_2, "VARNAME_3"::VARNAME_3];
-		}
-
-		create adm3 from: provinces_shp_file3;
-		ask adm3 where (each.GID_1 in lst_city) {
-		//			write shape;
-		//			shape<-CRS_transform(shape, "EPSG:3857", "EPSG:4326" );
-		//			shape<-CRS_transform(shape, "EPSG:32648" , "EPSG:3857");
-		//			write shape;
-		//			shape<-to_GAMA_CRS(shape);
-			save [self] crs: 3857 to: "../includes/gadm36_VNM_shp/generated/" + GID_1 + "/" + GID_2 + "/" + GID_3 + ".shp" type: "shp" attributes:
-			["ID"::int(self), "NAME_1"::NAME_1, "GID_1"::GID_1, "NAME_2"::NAME_2, "GID_2"::GID_2, "NAME_3"::NAME_3, "GID_3"::GID_3, "VARNAME_1"::VARNAME_1, "VARNAME_2"::VARNAME_2, "VARNAME_3"::VARNAME_3];
-		}
-
+		//		create adm2 from: provinces_shp_file2;
+		//		ask adm2 where (each.GID_1 in lst_city) {
+		//		//			shape <- CRS_transform(shape, "EPSG:4326");
+		//			save [self] crs: 3857 to: "../includes/gadm36_VNM_shp/generated/" + GID_1 + "/" + GID_2 + ".shp" type: "shp" attributes:
+		//			["ID"::int(self), "NAME_1"::NAME_1, "GID_1"::GID_1, "NAME_2"::NAME_2, "GID_2"::GID_2, "NAME_3"::NAME_3, "GID_3"::GID_3, "VARNAME_1"::VARNAME_1, "VARNAME_2"::VARNAME_2, "VARNAME_3"::VARNAME_3];
+		//		}
+		//
+		//		create adm3 from: provinces_shp_file3;
+		//		ask adm3 where (each.GID_1 in lst_city) {
+		//		//			write shape;
+		//		//			shape<-CRS_transform(shape, "EPSG:3857", "EPSG:4326" );
+		//		//			shape<-CRS_transform(shape, "EPSG:32648" , "EPSG:3857");
+		//		//			write shape;
+		//		//			shape<-to_GAMA_CRS(shape);
+		//			save [self] crs: 3857 to: "../includes/gadm36_VNM_shp/generated/" + GID_1 + "/" + GID_2 + "/" + GID_3 + ".shp" type: "shp" attributes:
+		//			["ID"::int(self), "NAME_1"::NAME_1, "GID_1"::GID_1, "NAME_2"::NAME_2, "GID_2"::GID_2, "NAME_3"::NAME_3, "GID_3"::GID_3, "VARNAME_1"::VARNAME_1, "VARNAME_2"::VARNAME_2, "VARNAME_3"::VARNAME_3];
+		//		}
 	}
 
 	action generate_demograph {
@@ -181,9 +199,9 @@ global {
 
 species iris {
 	float x;
-	float y; 
-
+	float y;
 }
+
 species building {
 	string NAME_1;
 	string NAME_2;
@@ -194,7 +212,7 @@ species building {
 	string VARNAME_1;
 	string VARNAME_2;
 	string VARNAME_3;
-	string type;
+	string type<-"";
 }
 
 species adm1bis {

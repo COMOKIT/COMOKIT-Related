@@ -13,18 +13,51 @@ model CoVid19
 
 global {
 	shape_file provinces_shp_file3 <- shape_file("../includes/gadm36_VNM_shp/gadm36_VNM_3.shp");
-	string file_path <- ""; //"../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1";
-	bool loading <- false;
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.1_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.2_1";
+//		string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.3_1";
+//		string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.4_1";
+		string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.5_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.6_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.7_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.8_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.9_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.10_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.11_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.12_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.13_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.14_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.15_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.16_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.17_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.18_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.19_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.20_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.21_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.22_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.23_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.24_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.25_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.26_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.27_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.28_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.29_1";
+	//	string file_path <- "../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.30_1";
+	//	string file_path <- ""; //"../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1";
+	//	bool loading <- false;
+	bool loading <- true;
 	//mandatory: define the bounds of the studied area
 	init {
 		if (loading) {
 			do load_satellite_image(file_path);
+			save "" to: "C:\\Users\\hqngh\\gama_workspace1909ssl\\.cache\\dev.virtualearth.net+_++_+REST+_+v1+_+Imagery+_+Map+_+AerialWithLabels+_+";
 			do die;
 		}
 
 	}
 
-	file data_file <- loading ? shape_file(file_path + ".shp") : shape_file("../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1.shp");
+	//	file data_file <- loading ? shape_file(file_path + ".shp") : shape_file("../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1.shp");
+	file data_file <- loading ? shape_file(file_path + ".shp") : shape_file("../includes/gadm36_VNM_shp/generated/VNM.27_1/VNM.27.1_1/VNM.27.1.1_1.shp");
 	geometry shape <- envelope(data_file);
 
 	//2344.06886728853 2853.6177374180406 {108.18542480464995,16.037336349477016,0.0} 
@@ -112,25 +145,24 @@ species adm3 {
 }
 //grid cell width: 1500 height:1500 use_individual_shapes: false use_regular_agents: false use_neighbors_cache: false;
 experiment generateGISdata type: gui {
-	list<string> lst_city <- ["VNM.19_1"];
+	list<string> lst_city <- ["VNM.27_1"];
 	list<string> lst_fp <- [];
 
-	action _init_ {
-		lst_fp <-
-		['../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.8_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.9_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.10_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.11_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.12_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.13_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.8_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.9_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.10_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.11_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.8_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.9_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.10_1'];
-		loop s over: lst_fp {
-			write s;
-			//			create simulation with: [file_path::s, shape::envelope(shape_file(s + ".shp")) , loading::true];
-//			create simulation with: [file_path::s, loading::true];
-//			save "" to: "C:\\Users\\hqngh\\gama_workspace1909ssl\\.cache\\dev.virtualearth.net+_++_+REST+_+v1+_+Imagery+_+Map+_+AerialWithLabels+_+";
-//			loop times: 1000000 {
-//				write "";
-//			}
-
-		}
-
-	}
-
+	//	action _init_ {
+	//		lst_fp <-
+	//		['../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.1_1/VNM.19.1.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.8_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.9_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.10_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.11_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.12_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.2_1/VNM.19.2.13_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.8_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.9_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.10_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.3_1/VNM.19.3.11_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.4_1/VNM.19.4.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.5_1/VNM.19.5.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.6_1/VNM.19.6.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.1_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.2_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.3_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.4_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.5_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.6_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.7_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.8_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.9_1', '../includes/gadm36_VNM_shp/generated/VNM.19_1/VNM.19.7_1/VNM.19.7.10_1'];
+	//		loop s over: lst_fp {
+	//			write s;
+	//			//			create simulation with: [file_path::s, shape::envelope(shape_file(s + ".shp")) , loading::true];
+	////			create simulation with: [file_path::s, loading::true];
+	////			save "" to: "C:\\Users\\hqngh\\gama_workspace1909ssl\\.cache\\dev.virtualearth.net+_++_+REST+_+v1+_+Imagery+_+Map+_+AerialWithLabels+_+";
+	////			loop times: 1000000 {
+	////				write "";
+	////			}
+	//
+	//		}
+	//
+	//	}
 	reflex aaa {
 		create adm3 from: provinces_shp_file3;
 		string ds <- "../includes/gadm36_VNM_shp/generated/";
@@ -138,6 +170,7 @@ experiment generateGISdata type: gui {
 			myself.lst_fp <+ ds + GID_1 + "/" + GID_2 + "/" + GID_3;
 		}
 
+		write lst_fp;
 		//		loop s over: lst_fp {
 		//			write s;
 		//			create simulation with: [file_path::s, loading::true];
